@@ -9,11 +9,14 @@ class NavigationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return MainLayOut(title: "Home Screen", children: [
       ElevatedButton(
-          onPressed: () {
-            Navigator.of(context)
+          onPressed: () async {
+           final result = await Navigator.of(context)
                 .push(MaterialPageRoute(builder: (BuildContext builder) {
-              return RouteOneScreen();
+              return RouteOneScreen(number: 123,);
             }));
+
+           print(result);
+
           },
           child: Text("Push"))
     ]);
