@@ -27,10 +27,25 @@ class HomeScreen extends StatelessWidget {
                   // pressed - 눌렸을 때
                   // dragged - 드래그 됐을 때
                   // selected - 선택 됐을 때 ( 체크박스, 라디오 버튼 )
-                  // scrollUnder - 
+                  // scrollUnder - 다른 컴포넌트 밑으로 스크롤링 됐을 때
+                  // disabled - 비활성화 됐을 때
+                  // error - 에러 상태
                   backgroundColor: MaterialStateProperty.all(Colors.purple),
-                  foregroundColor: MaterialStateProperty.resolveWith((states) {
-                    MaterialState.
+
+                  // MaterialStateProperty.resolveWith 상태에 따라서 상황에 맞는 제어를 할 수 있다.
+                  foregroundColor: MaterialStateProperty.resolveWith((Set<MaterialState> states) {
+
+                    if(states.contains(MaterialState.pressed)) {
+                      return Colors.green;
+                    }
+
+                    return Colors.deepOrangeAccent;
+
+                  }),
+                  padding:  MaterialStateProperty.resolveWith((Set<MaterialState> states) {
+                    if(states.contains(MaterialState.pressed)) {
+                      return EdgeInsets.all(20.0);
+                    }
                   })
                 ),
                 child: Text("Button Style")),
