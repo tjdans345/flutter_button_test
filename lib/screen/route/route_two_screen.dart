@@ -37,14 +37,17 @@ class RouteTwoScreen extends StatelessWidget {
           onPressed: () {
             Navigator.of(context).pushAndRemoveUntil(
               MaterialPageRoute(builder: (_) => RouteThreeScreen()),
+              // 해당 페이지 빼고는 다 스택에서 지워버린다.
               (route) => route.settings.name == "/",
             );
           },
           child: Text("push And Remove Until")),
       ElevatedButton(
           onPressed: () {
+            // named push route
             Navigator.of(context).pushNamedAndRemoveUntil(
               "/three",
+              // 해당 페이지 빼고는 다 스택에서 지워버린다.
               (route) => route.settings.name == "/",
             );
           },
