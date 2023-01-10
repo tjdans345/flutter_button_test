@@ -1,3 +1,4 @@
+import 'package:button_practice/layout/main_layout.dart';
 import 'package:flutter/material.dart';
 
 class RouteThreeScreen extends StatelessWidget {
@@ -5,19 +6,14 @@ class RouteThreeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("RouteThreeScreen"),
-      ),
-      body: Column(
-        children: [
-          ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: Text("Pop"))
-        ],
-      ),
-    );
+
+    final argument = ModalRoute.of(context)!.settings.arguments;
+
+    return MainLayOut(title: "Route Three", children: [
+      Text("argument : $argument", textAlign: TextAlign.center,),
+      ElevatedButton(onPressed: () {
+        Navigator.of(context).pop();
+      }, child: Text("Pop"))
+    ]);
   }
 }

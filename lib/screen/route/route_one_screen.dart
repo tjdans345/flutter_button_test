@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 
 class RouteOneScreen extends StatelessWidget {
 
-  final int number;
+  final int? number;
 
-  const RouteOneScreen({ required this.number, Key? key}) : super(key: key);
+  const RouteOneScreen({this.number, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

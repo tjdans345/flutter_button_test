@@ -6,16 +6,23 @@ class RouteTwoScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final arguments = ModalRoute.of(context)!.settings.arguments;
-    
+
     return MainLayOut(title: "route two page", children: [
-      Text("argument : $arguments ", textAlign: TextAlign.center,),
+      Text(
+        "argument : $arguments ",
+        textAlign: TextAlign.center,
+      ),
       ElevatedButton(
-          onPressed: (){
+          onPressed: () {
             Navigator.of(context).pop();
           },
-          child: Text("Pop"))
+          child: Text("Pop")),
+      ElevatedButton(
+          onPressed: () {
+            Navigator.of(context).pushNamed("/three", arguments: 999);
+          },
+          child: Text("push named"))
     ]);
   }
 }
